@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ================================================
+     НАСТРОЙКА САЙТА — ПРОВЕРЬ 4 СТРОКИ НИЖЕ
+     ================================================ -->
+<script>
+const CONFIG = {
+  WHATSAPP_NUMBER: "992937778866",   /* WhatsApp: 992 + номер, без + и пробелов */
+  TELEGRAM_USER:   "Sfera_tj",       /* Ник Telegram без @. ВНИМАНИЕ: точка в нике Telegram невозможна — проверь точный ник в настройках TG и поправь тут */
+  INSTAGRAM_USER:  "sfera.tjk",      /* Ник Instagram без @ */
+  PHONE:           "+992937778866",  /* Телефон для звонка */
+  PHONE_TEXT:      "+992 93 777-88-66" /* Телефон как показывать на сайте */
+};
+</script>
+
+<title>Sfera.tj — голографические 3D-вентиляторы в Душанбе</title>
+<meta name="description" content="Реклама, которая парит в воздухе. Продажа и аренда голографических 3D-вентиляторов, создание объёмных роликов под ваш бренд. Душанбе, Таджикистан.">
+<meta property="og:title" content="SFERA.TJ — реклама, которая парит в воздухе">
+<meta property="og:description" content="Голографические 3D-вентиляторы в Душанбе: продажа, аренда, 3D-контент под ваш бренд.">
+<meta name="theme-color" content="#05070D">
+<link rel="icon" type="image/png" href="data:image/png;base64,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SVJVVU0ripLUNC0DAAAXzzvru+l0QnrimVWvZjKZgbIsJxRFSaqqmsYYC5WVlTU//vGP53xVOsRfhfY0TQM///nPf2AYRgFjjEVRFCFEWNPUxAcf79n9zqrN+6+66pxxo0cOHso556U6AMayLKu6rvc99dRTm4IgiFeAACEEOjo6glGjRgWTJ0+eG4ahJ0mSBiEWk8lE5cABWfzP/7LsnWnTzhg0csTQesYAIESUJUlSfd93GhoaGt97773lXV1d4fHmBuirAN+VV155emVl5aAwDANFUTRCiKxpasJ1A3/FyvW7R40flp41Y9x4CCGSZVmVJEkhhEjJZDLz+uuvrzNN84hZ3JIlS/5MKTVTqVROluVkIqFmAADg23NnXDpten31A7/99z8KgiAlk1qFoigpVVUzkiRpsiwnf/KTn9zwVYAQH4/rc87BkCFD8N133317Pp/vkCRJwRgLECKkqmpi2coP123b1Nx7+4++O6t6YGUOAMAFQRAQQjiZTGZ379697ZlnnvmMc/6FyXPOAcYY9PX1MU3T2i644IKbfN+3CSEqQoKkqkq6bsTgqsf+6YU3UxUZZ87ZZ14UBFEgSUQlhChBEND6+voLdu3atWznzp0WxviYveC4PIBzDm699dY5oijKGGOBECKLoiglk4lM54FC9xuvb2g971tTaxomjpoAAISx9SVJUgRBEF944YV1YRgekbIYYwBCCJ588slNzc3N67LZbA0hRNM0JR1FnM36ZsPfXnLltyY8+uhzb+3v6NmTyaQGCgLRZFlOKYqS4ZyzBQsW3KdpGjie8hk6HuA788wztfPOO+8KXde7NU1LS5Kkxqj8/LJ31ymqhK+/6ry5GGNBliVFkiRVEARSWVk5eN26dX/etm0b/bKCRowFhmHwBx988F6EkBCGoReGocd5FFBK9f/zw8t+yDkHix5+5gEIIfr8Ome6rneMHTv2gptvvnny8TACPtbYRwiBRYsW3ZBOp6uiKApEUZQRQiiRSFRs/HT3pqVPvLrxlv910fQZ0+q/GQShT4gol4FPcxzHuP/++/9omiY/mochhMCuXbvM+vr6cMSIEVNt285zziPHoeaAARU1NAz3/v6JZesbpoxNDx82cLRtu0XGooAxFjmOU5g8efLsV1999cVisciOBRCPqiaMcZzvD54yZcqFruuaqqqmS+m5kkQI4X/7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">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#05070D;
+  --panel:linear-gradient(180deg,rgba(148,163,184,.07),rgba(148,163,184,.02));
+  --line:rgba(148,163,184,.17);
+  --text:#E9EEF5;
+  --muted:#94A1B5;
+  --blue:#4F8CFF;
+  --steel:linear-gradient(180deg,#FFFFFF 0%,#CBD5E1 48%,#8593A6 100%);
+  --disp:'Unbounded',system-ui,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--body);font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(640px 430px at 12% -6%, rgba(79,140,255,.13), transparent 62%),
+    radial-gradient(700px 520px at 110% 20%, rgba(148,163,184,.09), transparent 60%),
+    radial-gradient(520px 420px at 50% 118%, rgba(79,140,255,.08), transparent 60%);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(148,163,184,.10) 1px, transparent 1.45px);
+  background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(#000 0%, transparent 50%);
+  mask-image:linear-gradient(#000 0%, transparent 50%);
+}
+.wrap{width:min(720px,92%);margin:0 auto}
+.metal{background:var(--steel);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- ИНТРО ---------- */
+#intro{position:fixed;inset:0;z-index:200;background:#05070D;display:flex;align-items:center;justify-content:center;transition:opacity .55s ease}
+#intro.done{opacity:0;pointer-events:none}
+.iwrap{position:relative;width:min(230px,58vw);aspect-ratio:1}
+.iblades{position:absolute;inset:0;width:100%;height:100%}
+.iblades .rot{transform-origin:100px 100px;animation:ispin .34s linear infinite}
+@keyframes ispin{to{transform:rotate(360deg)}}
+#intro.reveal .iblades{opacity:0;filter:blur(4px);transition:opacity .45s ease,filter .45s ease}
+.ilogo{
+  position:absolute;left:50%;top:50%;width:74%;transform:translate(-50%,-50%) scale(.55);
+  opacity:0;filter:drop-shadow(0 0 26px rgba(79,140,255,.55)) drop-shadow(0 8px 30px rgba(203,213,225,.25));
+  transition:opacity .55s ease .1s, transform .65s cubic-bezier(.2,.85,.25,1) .1s;
+}
+#intro.reveal .ilogo{opacity:1;transform:translate(-50%,-50%) scale(1)}
+@media (prefers-reduced-motion: reduce){#intro{display:none}}
+
+/* ---------- ВЕРХНЯЯ ПАНЕЛЬ ---------- */
+.topbar{
+  position:sticky;top:0;z-index:70;
+  background:rgba(5,7,13,.74);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.tbrow{display:flex;align-items:center;gap:14px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);flex:none}
+.brand img,.brand svg{width:34px;height:auto;display:block}
+.brand b{font-family:var(--disp);font-weight:700;font-size:14px;letter-spacing:1.5px}
+.topnav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-left:auto;padding:2px}
+.topnav::-webkit-scrollbar{display:none}
+.topnav a{
+  flex:none;text-decoration:none;color:var(--muted);font-weight:700;font-size:13.5px;
+  padding:8px 14px;border:1px solid transparent;border-radius:999px;transition:.25s;
+}
+.topnav a:hover{color:var(--text)}
+.topnav a.on{color:#fff;border-color:var(--line);background:rgba(148,163,184,.09)}
+
+/* ---------- СТРАНИЦЫ ---------- */
+.page{display:none}
+.page.active{display:block;animation:pageIn .45s ease}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- ГЕРОЙ ---------- */
+.hero{padding:30px 0 8px;text-align:center;position:relative}
+#fx{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#fx .p{position:absolute;width:3px;height:3px;border-radius:50%;background:#7FB0FF;opacity:.5;animation:drift var(--d,5s) ease-in-out var(--dl,0s) infinite alternate}
+@keyframes drift{to{transform:translateY(-28px);opacity:.12}}
+.hero-mark{
+  width:min(230px,56vw);display:block;margin:4px auto 2px;position:relative;z-index:1;
+  animation:float 4.8s ease-in-out infinite;
+  filter:drop-shadow(0 18px 40px rgba(79,140,255,.30)) drop-shadow(0 0 22px rgba(203,213,225,.18));
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+.rings{width:min(230px,56vw);display:block;margin:-26px auto 4px}
+.rings .r1{stroke:rgba(79,140,255,.4);animation:ring 3.2s ease-in-out infinite}
+.rings .r2{stroke:rgba(203,213,225,.5);animation:ring 3.2s ease-in-out .55s infinite}
+.rings .r3{stroke:rgba(127,176,255,.7);animation:ring 3.2s ease-in-out 1.1s infinite}
+@keyframes ring{0%,100%{opacity:.2}50%{opacity:.95}}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:2.8px;color:#9DB4D8;text-transform:uppercase}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,6.2vw,2.4rem);line-height:1.18;margin:10px 0 14px;letter-spacing:.3px}
+.hero p.sub{color:var(--muted);max-width:540px;margin:0 auto 22px;font-size:16px}
+
+.cta{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:440px;margin:0 auto;position:relative;z-index:1}
+.btn{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  height:56px;border-radius:15px;text-decoration:none;
+  font-weight:800;font-size:16px;letter-spacing:.2px;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.btn::after{
+  content:"";position:absolute;top:0;bottom:0;width:46px;left:-70px;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-18deg);transition:left .5s ease;
+}
+.btn:hover::after{left:calc(100% + 30px)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:21px;height:21px;flex:none}
+.btn-wa{background:#25D366;color:#04371C;box-shadow:0 10px 28px rgba(37,211,102,.2)}
+.btn-tg{background:#2AABEE;color:#032C43;box-shadow:0 10px 28px rgba(42,171,238,.2)}
+.btn-ghost{background:rgba(148,163,184,.09);border:1px solid var(--line);color:var(--text)}
+.cta-note{color:var(--muted);font-size:13.5px;margin-top:13px}
+
+/* ---------- БЕГУЩАЯ СТРОКА ---------- */
+.marq{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0;margin-top:36px}
+.marq .track{display:flex;gap:38px;width:max-content;animation:marq 26s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+.marq span{color:var(--muted);font-weight:800;letter-spacing:2px;font-size:12px;text-transform:uppercase;white-space:nowrap}
+.marq b{color:#7FB0FF;font-weight:800}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- СЕКЦИИ ---------- */
+section.blk{padding:46px 0 0}
+.sechead{margin-bottom:20px}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.15rem,4.6vw,1.5rem);line-height:1.3;margin-top:7px}
+.lead{color:var(--muted);margin-top:10px;max-width:580px}
+
+.cards{display:grid;grid-template-columns:1fr;gap:13px}
+@media(min-width:560px){.cards{grid-template-columns:1fr 1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:19px 18px 17px;transition:border-color .25s, box-shadow .25s}
+.card:hover{border-color:rgba(148,163,184,.35);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+.card .ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(79,140,255,.10);border:1px solid rgba(79,140,255,.25);margin-bottom:13px}
+.card .ic svg{width:22px;height:22px;stroke:#9DB9FF;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:16.5px;font-weight:800;margin-bottom:6px}
+.card p{color:var(--muted);font-size:14.5px;line-height:1.55}
+
+/* галерея / фото */
+.gallery{display:grid;grid-template-columns:1fr;gap:13px}
+@media(min-width:560px){.gallery{grid-template-columns:1fr 1fr}}
+.shot{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);position:relative}
+.shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#0A0F1B;cursor:zoom-in}
+.shot .art{display:none;width:100%;aspect-ratio:4/3;background:radial-gradient(300px 190px at 50% 42%, rgba(79,140,255,.12), transparent 70%)}
+.shot.illu img{display:none}
+.shot.illu .art{display:block}
+.badge{position:absolute;top:12px;left:12px;padding:5px 11px;border-radius:999px;font-size:11.5px;font-weight:800;letter-spacing:.6px;background:rgba(5,7,13,.65);border:1px solid var(--line);color:#C9D5E6;backdrop-filter:blur(6px)}
+.shot figcaption{padding:11px 14px;font-size:13.5px;color:var(--muted);font-weight:600;border-top:1px solid var(--line)}
+
+/* модели (продажа) */
+.models{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:620px){.models{grid-template-columns:1fr 1fr 1fr}}
+.model{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px 16px;text-align:center;transition:border-color .25s, box-shadow .25s;will-change:transform}
+.model:hover{border-color:rgba(148,163,184,.4);box-shadow:0 18px 46px rgba(0,0,0,.4)}
+.model .size{font-family:var(--disp);font-weight:700;font-size:30px}
+.model .for{color:var(--muted);font-size:13.5px;margin:4px 0 12px}
+.model .art2{width:100%;max-width:190px;margin:0 auto 10px;display:block}
+.tags{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-bottom:14px}
+.tag{padding:6px 11px;border-radius:999px;border:1px solid var(--line);color:#C7D4E8;font-size:12.5px;font-weight:700;background:rgba(148,163,184,.06)}
+.model .btn{height:48px;font-size:14.5px}
+
+/* списки */
+.list{display:grid;gap:10px;margin-top:6px}
+.list li{list-style:none;display:flex;gap:11px;align-items:flex-start;color:var(--muted);font-size:15px}
+.list li::before{content:"";flex:none;width:8px;height:8px;border-radius:2px;margin-top:7px;background:linear-gradient(135deg,#CBD5E1,#7FB0FF)}
+.list b{color:var(--text)}
+
+/* чипы */
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{padding:8px 15px;border-radius:999px;border:1px solid var(--line);color:#C7D4E8;font-size:14px;font-weight:600;background:rgba(148,163,184,.05)}
+
+/* статистика */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+@media(max-width:560px){.stats{grid-template-columns:1fr;gap:14px;text-align:left}.stat{display:flex;align-items:baseline;gap:14px}}
+.stat b{font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,6.5vw,2rem);white-space:nowrap}
+.stat span{display:block;color:var(--muted);font-size:13.5px;margin-top:4px;line-height:1.45}
+@media(max-width:560px){.stat span{margin-top:0}}
+
+/* шаги */
+.steps{display:grid;gap:16px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step .n{font-family:var(--disp);font-weight:700;font-size:26px;line-height:1;min-width:34px}
+.step h3{font-size:16px;font-weight:800;margin-bottom:3px}
+.step p{color:var(--muted);font-size:14.5px}
+
+/* вопросы */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:17px 2px;font-weight:800;font-size:15.5px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--disp);font-size:18px;color:#9DB9FF;transition:transform .25s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{color:var(--muted);font-size:14.5px;padding:0 2px 17px;max-width:580px}
+
+/* контакты */
+.contacts{display:grid;grid-template-columns:1fr;gap:13px}
+@media(min-width:560px){.contacts{grid-template-columns:1fr 1fr}}
+.ccard{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px 18px}
+.ccard .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.ccard .ic svg{width:24px;height:24px}
+.ccard h3{font-size:15px;font-weight:800;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;font-size:12.5px}
+.ccard .val{font-size:19px;font-weight:800;margin:5px 0 14px;word-break:break-all}
+.ccard .row{display:flex;gap:9px;flex-wrap:wrap}
+.ccard .btn{height:46px;font-size:14px;padding:0 16px;flex:1;min-width:130px}
+.ic-wa{background:rgba(37,211,102,.14);border:1px solid rgba(37,211,102,.35)}
+.ic-tg{background:rgba(42,171,238,.14);border:1px solid rgba(42,171,238,.35)}
+.ic-ig{background:rgba(225,48,108,.14);border:1px solid rgba(225,48,108,.35)}
+.ic-ph{background:rgba(148,163,184,.12);border:1px solid var(--line)}
+
+/* финальный блок */
+.final{margin-top:50px;background:linear-gradient(160deg,rgba(79,140,255,.13),rgba(148,163,184,.08));border:1px solid rgba(148,163,184,.3);border-radius:22px;padding:28px 22px;text-align:center}
+.final h2{margin-top:0}
+.final p{color:var(--muted);margin:10px auto 20px;max-width:480px}
+.final .cta{margin:0 auto}
+
+/* подвал */
+footer{padding:40px 0 116px;text-align:center;color:var(--muted);font-size:13.5px}
+footer .fl{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px}
+footer .fl img{width:30px}
+footer .fl b{font-family:var(--disp);letter-spacing:1.5px;font-size:14px}
+footer a{color:#B9C8DE;text-decoration:none;font-weight:700}
+
+/* нижняя панель */
+.ctabar{
+  position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;z-index:60;
+  transform:translateY(130%);transition:transform .35s ease;max-width:480px;margin:0 auto;
+}
+.ctabar.show{transform:translateY(0)}
+.ctabar .btn{height:52px;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+body[data-page="contacts"] .ctabar{display:none}
+
+/* лайтбокс */
+#lb{position:fixed;inset:0;z-index:180;background:rgba(3,5,10,.9);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+#lb.open{display:flex}
+#lb img{max-width:96%;max-height:92%;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+
+/* тост */
+#toast{
+  position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translate(-50%,20px);
+  background:#101827;border:1px solid var(--line);color:var(--text);
+  padding:11px 18px;border-radius:12px;font-weight:700;font-size:14px;
+  opacity:0;pointer-events:none;transition:.3s;z-index:190;
+}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* появление */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid #9DB9FF;outline-offset:3px;border-radius:8px}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .hero-mark,.rings .r1,.rings .r2,.rings .r3,.marq .track,#fx .p{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+  .ctabar,.page.active{transition:none;animation:none}
+}
+</style>
+</head>
+<body data-page="home">
+
+<!-- ИНТРО -->
+<div id="intro" aria-hidden="true">
+  <div class="iwrap">
+    <svg class="iblades" viewBox="0 0 200 200" aria-hidden="true">
+      <defs>
+        <linearGradient id="ibl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDF2F8" stop-opacity="0.95"/><stop offset="1" stop-color="#7E8CA0" stop-opacity="0.5"/></linearGradient>
+      </defs>
+      <circle cx="100" cy="100" r="84" fill="none" stroke="rgba(148,163,184,.12)" stroke-width="14"/>
+      <g class="rot">
+        <g>
+          <path d="M100 100 Q88 55 100 16 Q112 55 100 100 Z" fill="url(#ibl)"/>
+          <circle cx="100" cy="70" r="2.6" fill="#EAF3FF"/><circle cx="100" cy="50" r="2.6" fill="#CBDCF6"/><circle cx="100" cy="31" r="2.6" fill="#A9C4EC"/>
+        </g>
+        <g transform="rotate(90 100 100)">
+          <path d="M100 100 Q88 55 100 16 Q112 55 100 100 Z" fill="url(#ibl)"/>
+          <circle cx="100" cy="70" r="2.6" fill="#EAF3FF"/><circle cx="100" cy="50" r="2.6" fill="#CBDCF6"/><circle cx="100" cy="31" r="2.6" fill="#A9C4EC"/>
+        </g>
+        <g transform="rotate(180 100 100)">
+          <path d="M100 100 Q88 55 100 16 Q112 55 100 100 Z" fill="url(#ibl)"/>
+          <circle cx="100" cy="70" r="2.6" fill="#EAF3FF"/><circle cx="100" cy="50" r="2.6" fill="#CBDCF6"/><circle cx="100" cy="31" r="2.6" fill="#A9C4EC"/>
+        </g>
+        <g transform="rotate(270 100 100)">
+          <path d="M100 100 Q88 55 100 16 Q112 55 100 100 Z" fill="url(#ibl)"/>
+          <circle cx="100" cy="70" r="2.6" fill="#EAF3FF"/><circle cx="100" cy="50" r="2.6" fill="#CBDCF6"/><circle cx="100" cy="31" r="2.6" fill="#A9C4EC"/>
+        </g>
+        <circle cx="100" cy="100" r="11" fill="#0C1220" stroke="rgba(203,213,225,.7)" stroke-width="2"/>
+      </g>
+    </svg>
+    <img class="ilogo" src="assets/logo-mark.png" alt=""
+         onerror="this.style.display='none';document.getElementById('ifb').style.display='block'">
+    <svg id="ifb" class="ilogo" style="display:none" viewBox="0 0 100 90" aria-hidden="true">
+      <defs><linearGradient id="fst" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#8B98AB"/></linearGradient></defs>
+      <path d="M50 4 L96 84 H4 Z M50 27 L76 72 H24 Z" fill="url(#fst)" fill-rule="evenodd"/>
+    </svg>
+  </div>
+</div>
+<script>
+(function(){
+  try{
+    if (sessionStorage.getItem("introSeen") === "1" ||
+        (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) {
+      var el = document.getElementById("intro");
+      if (el) el.parentNode.removeChild(el);
+    }
+  }catch(e){}
+})();
+</script>
+<noscript><style>#intro{display:none}.page{display:block!important}</style></noscript>
+
+<!-- скрытые SVG-иллюстрации устройств -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="stl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.5" stop-color="#C7D1DD"/><stop offset="1" stop-color="#8593A6"/></linearGradient>
+    <radialGradient id="bglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#4F8CFF" stop-opacity="0.5"/><stop offset="1" stop-color="#4F8CFF" stop-opacity="0"/></radialGradient>
+  </defs>
+  <symbol id="fanStand" viewBox="0 0 220 170">
+    <circle cx="110" cy="74" r="52" fill="none" stroke="url(#stl)" stroke-width="9"/>
+    <circle cx="110" cy="74" r="42" fill="none" stroke="rgba(79,140,255,.3)" stroke-width="2" stroke-dasharray="3 9"/>
+    <path d="M63 45 A54 54 0 0 1 137 26" fill="none" stroke="rgba(127,176,255,.65)" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M157 103 A54 54 0 0 1 92 122" fill="none" stroke="rgba(127,176,255,.4)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="110" cy="74" r="38" fill="url(#bglow)"/>
+    <circle cx="110" cy="78" r="6" fill="#0B101C" stroke="url(#stl)" stroke-width="2.5"/>
+    <path d="M110 48 L138 96 H82 Z M110 64 L125 90 H95 Z" fill="url(#stl)" fill-rule="evenodd"/>
+    <line x1="110" y1="126" x2="110" y2="144" stroke="url(#stl)" stroke-width="7" stroke-linecap="round"/>
+    <line x1="110" y1="144" x2="86" y2="162" stroke="url(#stl)" stroke-width="6" stroke-linecap="round"/>
+    <line x1="110" y1="144" x2="134" y2="162" stroke="url(#stl)" stroke-width="6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="fanWall" viewBox="0 0 220 170">
+    <circle cx="100" cy="84" r="52" fill="none" stroke="url(#stl)" stroke-width="9"/>
+    <circle cx="100" cy="84" r="42" fill="none" stroke="rgba(79,140,255,.3)" stroke-width="2" stroke-dasharray="3 9"/>
+    <path d="M53 55 A54 54 0 0 1 127 36" fill="none" stroke="rgba(127,176,255,.65)" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M147 113 A54 54 0 0 1 82 132" fill="none" stroke="rgba(127,176,255,.4)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="100" cy="84" r="38" fill="url(#bglow)"/>
+    <circle cx="100" cy="88" r="6" fill="#0B101C" stroke="url(#stl)" stroke-width="2.5"/>
+    <path d="M100 58 L128 106 H72 Z M100 74 L115 100 H85 Z" fill="url(#stl)" fill-rule="evenodd"/>
+    <line x1="152" y1="84" x2="188" y2="84" stroke="url(#stl)" stroke-width="8" stroke-linecap="round"/>
+    <rect x="186" y="62" width="11" height="44" rx="4" fill="url(#stl)"/>
+  </symbol>
+</svg>
+
+<!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+<div class="topbar">
+  <div class="wrap tbrow">
+    <a class="brand" href="#home" aria-label="SFERA.TJ — на главную">
+      <img src="assets/logo-mark.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <svg viewBox="0 0 100 90" style="display:none" aria-hidden="true"><path d="M50 4 L96 84 H4 Z M50 27 L76 72 H24 Z" fill="url(#stl)" fill-rule="evenodd"/></svg>
+      <b class="metal">SFERA.TJ</b>
+    </a>
+    <nav class="topnav" aria-label="Разделы сайта">
+      <a data-nav href="#home" class="on">Главная</a>
+      <a data-nav href="#sale">Продажа</a>
+      <a data-nav href="#rent">Аренда</a>
+      <a data-nav href="#services">Услуги</a>
+      <a data-nav href="#contacts">Контакты</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- ============ ГЛАВНАЯ ============ -->
+<section class="page active" data-page="home">
+
+  <div class="hero">
+    <div id="fx" aria-hidden="true"></div>
+    <img class="hero-mark" src="assets/logo-mark.png" alt="SFERA.TJ"
+         onerror="this.style.display='none';document.getElementById('hfb').style.display='block'">
+    <svg id="hfb" class="hero-mark" style="display:none" viewBox="0 0 100 90" aria-hidden="true">
+      <path d="M50 4 L96 84 H4 Z M50 27 L76 72 H24 Z" fill="url(#stl)" fill-rule="evenodd"/>
+    </svg>
+    <svg class="rings" viewBox="0 0 220 46" aria-hidden="true">
+      <g fill="none" stroke-width="1.6">
+        <ellipse class="r1" cx="110" cy="23" rx="86" ry="17"/>
+        <ellipse class="r2" cx="110" cy="23" rx="57" ry="11"/>
+        <ellipse class="r3" cx="110" cy="23" rx="30" ry="5.5"/>
+      </g>
+    </svg>
+
+    <div class="eyebrow">SFERA.TJ · SINCE 2026 · ДУШАНБЕ</div>
+    <h1 class="metal">Реклама, которая<br>парит в воздухе</h1>
+    <p class="sub">Голографические 3D-вентиляторы для витрин, залов и мероприятий: продажа, аренда и объёмные ролики под ваш бренд.</p>
+
+    <div class="cta">
+      <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.4 8.8 5.6c.4.4.5 1 .2 1.5L8 9c1 2.3 2.7 4 5 5l1.9-1c.5-.3 1.1-.2 1.5.2l2.2 2.2c.5.5.5 1.4-.1 1.9-1.2 1-2.8 1.5-4.5 1.1-5-1.2-9-5.2-10.2-10.2-.4-1.7.1-3.3 1.1-4.5.5-.6 1.4-.6 1.9-.1Z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn btn-tg" data-tg href="#" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 3.4 3.7 10.3c-.9.36-.85 1.62.07 1.93l4.5 1.5 1.7 4.9c.3.9 1.5 1.05 2 .23l2.3-3.55 4.4 3.25c.8.58 1.93.14 2.13-.84l2-12.3c.17-1.03-.84-1.8-1.2-1.02Z"/></svg>
+        Telegram
+      </a>
+    </div>
+    <div class="cta-note">Напишите нам — посоветуем модель и покажем примеры</div>
+  </div>
+
+  <div class="marq" aria-hidden="true">
+    <div class="track">
+      <span>ТЦ и витрины <b>·</b></span><span>Рестораны и кафе <b>·</b></span><span>Автосалоны <b>·</b></span><span>Банки <b>·</b></span><span>Ивент-агентства <b>·</b></span><span>Застройщики <b>·</b></span><span>Салоны и клиники <b>·</b></span>
+      <span>ТЦ и витрины <b>·</b></span><span>Рестораны и кафе <b>·</b></span><span>Автосалоны <b>·</b></span><span>Банки <b>·</b></span><span>Ивент-агентства <b>·</b></span><span>Застройщики <b>·</b></span><span>Салоны и клиники <b>·</b></span>
+    </div>
+  </div>
+
+  <section class="blk reveal">
+    <div class="sechead">
+      <div class="eyebrow">Технология</div>
+      <h2 class="metal">Изображение висит в воздухе</h2>
+      <p class="lead">LED-лопасти вращаются так быстро, что глаз видит объёмную картинку без экрана и рамок. Люди останавливаются, снимают на телефон и делятся в соцсетях — реклама работает и офлайн, и онлайн.</p>
+    </div>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sechead">
+      <div class="eyebrow">Устройства</div>
+      <h2 class="metal">Уличные и внутренние модели</h2>
+      <p class="lead">Подберём под место: витрина, торговый зал, фасад или сцена мероприятия.</p>
+    </div>
+    <div class="gallery">
+      <figure class="shot">
+        <img src="img/outdoor-1.jpg" alt="Уличный голографический 3D-вентилятор" loading="lazy"
+             onerror="this.parentElement.classList.add('illu')">
+        <svg class="art" aria-hidden="true"><use href="#fanStand"/></svg>
+        <span class="badge">Улица</span>
+        <figcaption>Уличная модель · повышенная яркость</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/outdoor-2.jpg" alt="Уличный голографический вентилятор с защитой" loading="lazy"
+             onerror="this.parentElement.classList.add('illu')">
+        <svg class="art" aria-hidden="true"><use href="#fanWall"/></svg>
+        <span class="badge">Улица</span>
+        <figcaption>Уличная модель · защитный корпус</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/indoor-1.jpg" alt="Внутренний голографический 3D-вентилятор" loading="lazy"
+             onerror="this.parentElement.classList.add('illu')">
+        <svg class="art" aria-hidden="true"><use href="#fanWall"/></svg>
+        <span class="badge">Помещение</span>
+        <figcaption>Внутренняя модель · витрины и залы</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/indoor-2.jpg" alt="Голографический вентилятор на мероприятии" loading="lazy"
+             onerror="this.parentElement.classList.add('illu')">
+        <svg class="art" aria-hidden="true"><use href="#fanStand"/></svg>
+        <span class="badge">Помещение</span>
+        <figcaption>Внутренняя модель · мероприятия</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sechead"><div class="eyebrow">Почему это работает</div></div>
+    <div class="stats">
+      <div class="stat"><b class="metal"><span data-count="3" data-prefix="×">×3</span></b><span>внимание выше, чем у обычных экранов</span></div>
+      <div class="stat"><b class="metal"><span data-count="178" data-prefix="+" data-suffix="%">+178%</span></b><span>время у витрины в кейсах магазинов</span></div>
+      <div class="stat"><b class="metal"><span data-count="50000" data-suffix=" ч">50 000 ч</span></b><span>ресурс работы LED-устройства</span></div>
+    </div>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sechead"><div class="eyebrow">Как заказать</div></div>
+    <div class="steps">
+      <div class="step"><div class="n metal">1</div><div><h3>Напишите нам</h3><p>В WhatsApp или Telegram: пара вопросов о задаче и месте установки.</p></div></div>
+      <div class="step"><div class="n metal">2</div><div><h3>Подбор и ролик</h3><p>Предложим модель и сделаем 3D-ролик под ваш бренд.</p></div></div>
+      <div class="step"><div class="n metal">3</div><div><h3>Установка под ключ</h3><p>Привезём, установим, настроим и научим менять контент.</p></div></div>
+    </div>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sechead"><div class="eyebrow">Частые вопросы</div></div>
+    <div class="faq">
+      <details>
+        <summary>Сколько это стоит?</summary>
+        <div class="a">Зависит от размера устройства, задачи и контента. Напишите нам — подберём вариант и пришлём расчёт в тот же день.</div>
+      </details>
+      <details>
+        <summary>Видно ли изображение днём?</summary>
+        <div class="a">В помещениях и на витринах — да, яркости хватает с запасом. Под прямым солнцем любая голограмма тускнеет, поэтому поможем выбрать правильное место установки.</div>
+      </details>
+      <details>
+        <summary>Кто делает 3D-ролики?</summary>
+        <div class="a">Мы. Пришлёте логотип и фото товара — вернём готовую объёмную анимацию под формат устройства. Обновляем ролики к акциям и праздникам.</div>
+      </details>
+      <details>
+        <summary>Есть ли гарантия?</summary>
+        <div class="a">Да. Плюс держим запчасти и делаем ремонт в Душанбе — не придётся неделями ждать посылку из Китая.</div>
+      </details>
+    </div>
+  </section>
+
+  <section class="final reveal">
+    <h2 class="metal">Покажем вживую</h2>
+    <p>Напишите — привезём устройство на демонстрацию или пришлём видео примеров.</p>
+    <div class="cta">
+      <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-tg" data-tg href="#" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </section>
+
+</section>
+
+<!-- ============ ПРОДАЖА ============ -->
+<section class="page" data-page="sale">
+  <section class="blk">
+    <div class="sechead">
+      <div class="eyebrow">Продажа</div>
+      <h2 class="metal">Устройства под вашу задачу</h2>
+      <p class="lead">Wi-Fi-управление с телефона, высокая яркость, гарантия и запчасти в Душанбе. Все модели поддерживают загрузку ваших роликов.</p>
+    </div>
+    <div class="models">
+      <div class="model tilt">
+        <svg class="art2" viewBox="0 0 220 170" aria-hidden="true"><use href="#fanWall"/></svg>
+        <div class="size metal">42 см</div>
+        <div class="for">Витрины, стойки, кассовые зоны</div>
+        <div class="tags"><span class="tag">Wi-Fi + приложение</span><span class="tag">HD-картинка</span><span class="tag">Лёгкий монтаж</span></div>
+        <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">Запросить расчёт</a>
+      </div>
+      <div class="model tilt">
+        <svg class="art2" viewBox="0 0 220 170" aria-hidden="true"><use href="#fanStand"/></svg>
+        <div class="size metal">65 см</div>
+        <div class="for">Залы, входные группы, рестораны</div>
+        <div class="tags"><span class="tag">Высокая яркость</span><span class="tag">Wi-Fi + приложение</span><span class="tag">Сплайсинг в стену</span></div>
+        <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">Запросить расчёт</a>
+      </div>
+      <div class="model tilt">
+        <svg class="art2" viewBox="0 0 220 170" aria-hidden="true"><use href="#fanStand"/></svg>
+        <div class="size metal">100 см</div>
+        <div class="for">ТЦ, фасады, выставки — флагман</div>
+        <div class="tags"><span class="tag">Максимальный размер</span><span class="tag">Видеостена</span><span class="tag">Монтаж под ключ</span></div>
+        <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">Запросить расчёт</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sechead"><div class="eyebrow">Что входит в покупку</div></div>
+    <ul class="list">
+      <li><b>Устройство и крепление</b> — потолочное, настенное или напольная стойка под ваше место.</li>
+      <li><b>Настройка под ключ</b> — Wi-Fi, приложение, первый запуск и обучение персонала.</li>
+      <li><b>Стартовый 3D-ролик</b> — под ваш логотип, готов к показу в день установки.</li>
+      <li><b>Гарантия и сервис</b> — запчасти держим в Душанбе, ремонт без ожидания посылок.</li>
+    </ul>
+  </section>
+
+  <section class="final reveal">
+    <h2 class="metal">Подберём модель за 5 минут</h2>
+    <p>Расскажите, где хотите установить — предложим размер, крепление и пришлём расчёт.</p>
+    <div class="cta">
+      <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-tg" data-tg href="#" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </section>
+</section>
+
+<!-- ============ АРЕНДА ============ -->
+<section class="page" data-page="rent">
+  <section class="blk">
+    <div class="sechead">
+      <div class="eyebrow">Аренда</div>
+      <h2 class="metal">Голограмма на ваше событие</h2>
+      <p class="lead">Привозим, настраиваем и сопровождаем. Ваш логотип или продукт парит в воздухе — гости снимают и делятся в соцсетях.</p>
+    </div>
+    <div class="chips">
+      <span class="chip">Открытие точки</span>
+      <span class="chip">Свадьба и торжество</span>
+      <span class="chip">Выставка и форум</span>
+      <span class="chip">Презентация продукта</span>
+      <span class="chip">Съёмка и контент</span>
+      <span class="chip">Корпоратив</span>
+    </div>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sechead"><div class="eyebrow">Что входит в аренду</div></div>
+    <ul class="list">
+      <li><b>Доставка и монтаж</b> — привезём и установим к началу события.</li>
+      <li><b>Ролик под событие</b> — логотип, поздравление или продукт в 3D.</li>
+      <li><b>Настройка и запуск</b> — всё работает до прихода первых гостей.</li>
+      <li><b>Сопровождение и демонтаж</b> — на связи во время события, забираем сами.</li>
+    </ul>
+  </section>
+
+  <section class="blk reveal">
+    <div class="sechead"><div class="eyebrow">Как проходит</div></div>
+    <div class="steps">
+      <div class="step"><div class="n metal">1</div><div><h3>Бронь даты</h3><p>Напишите дату, место и повод — подтвердим свободность устройства.</p></div></div>
+      <div class="step"><div class="n metal">2</div><div><h3>Готовим ролик</h3><p>Согласуем контент под ваше событие заранее.</p></div></div>
+      <div class="step"><div class="n metal">3</div><div><h3>День события</h3><p>Привозим, запускаем, сопровождаем и забираем после.</p></div></div>
+    </div>
+  </section>
+
+  <section class="final reveal">
+    <h2 class="metal">Забронировать дату</h2>
+    <p>Напишите дату и место события — ответим, свободно ли устройство, в течение часа.</p>
+    <div class="cta">
+      <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-tg" data-tg href="#" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </section>
+</section>
+
+<!-- ============ УСЛУГИ ============ -->
+<section class="page" data-page="services">
+  <section class="blk">
+    <div class="sechead">
+      <div class="eyebrow">Услуги</div>
+      <h2 class="metal">Больше, чем устройство</h2>
+      <p class="lead">Контент, установка и сервис — всё в одном месте, чтобы голограмма работала на ваш бизнес каждый день.</p>
+    </div>
+    <div class="cards">
+      <div class="card tilt">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8.8 5 3.2-5 3.2V8.8Z"/></svg></div>
+        <h3>3D-ролики под бренд</h3>
+        <p>Логотип или товар превращаем в объёмную анимацию под формат устройства. Обновляем к акциям, сезонам и праздникам.</p>
+      </div>
+      <div class="card tilt">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4.5 4.5 0 0 0-6 6L3 18l3 3 5.5-5.5a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.5-3.5Z"/></svg></div>
+        <h3>Установка под ключ</h3>
+        <p>Крепления под потолок, стену или стойку, аккуратный монтаж, настройка Wi-Fi и обучение вашей команды.</p>
+      </div>
+      <div class="card tilt">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h3>Сервис и запчасти</h3>
+        <p>Диагностика, чистка и ремонт в Душанбе. Лопасти, моторы и блоки питания держим в наличии.</p>
+      </div>
+      <div class="card tilt">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="8" rx="1.5"/><rect x="13" y="4" width="8" height="8" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/><rect x="13" y="14" width="8" height="7" rx="1.5"/></svg></div>
+        <h3>Видеостена из голограмм</h3>
+        <p>Несколько синхронизированных устройств собираются в одно большое парящее полотно — премиум-решение для ТЦ и фасадов.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final reveal">
+    <h2 class="metal">Обсудим вашу задачу</h2>
+    <p>Пришлите логотип и фото места — предложим формат, контент и срок.</p>
+    <div class="cta">
+      <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-tg" data-tg href="#" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </section>
+</section>
+
+<!-- ============ КОНТАКТЫ ============ -->
+<section class="page" data-page="contacts">
+  <section class="blk">
+    <div class="sechead">
+      <div class="eyebrow">Контакты</div>
+      <h2 class="metal">Мы на связи</h2>
+      <p class="lead">Душанбе · отвечаем в течение рабочего дня. Выберите удобный способ:</p>
+    </div>
+    <div class="contacts">
+      <div class="ccard">
+        <div class="ic ic-wa"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.4 8.8 5.6c.4.4.5 1 .2 1.5L8 9c1 2.3 2.7 4 5 5l1.9-1c.5-.3 1.1-.2 1.5.2l2.2 2.2c.5.5.5 1.4-.1 1.9-1.2 1-2.8 1.5-4.5 1.1-5-1.2-9-5.2-10.2-10.2-.4-1.7.1-3.3 1.1-4.5.5-.6 1.4-.6 1.9-.1Z"/></svg></div>
+        <h3>WhatsApp</h3>
+        <div class="val" data-phone-text>+992 93 777-88-66</div>
+        <div class="row"><a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">Написать</a></div>
+      </div>
+      <div class="ccard">
+        <div class="ic ic-tg"><svg viewBox="0 0 24 24" fill="#2AABEE"><path d="M21.6 3.4 3.7 10.3c-.9.36-.85 1.62.07 1.93l4.5 1.5 1.7 4.9c.3.9 1.5 1.05 2 .23l2.3-3.55 4.4 3.25c.8.58 1.93.14 2.13-.84l2-12.3c.17-1.03-.84-1.8-1.2-1.02Z"/></svg></div>
+        <h3>Telegram</h3>
+        <div class="val" data-tg-text>@Sfera_tj</div>
+        <div class="row"><a class="btn btn-tg" data-tg href="#" target="_blank" rel="noopener">Написать</a></div>
+      </div>
+      <div class="ccard">
+        <div class="ic ic-ig"><svg viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.2" fill="#E1306C" stroke="none"/></svg></div>
+        <h3>Instagram</h3>
+        <div class="val" data-ig-text>@sfera.tjk</div>
+        <div class="row"><a class="btn btn-ghost" data-ig href="#" target="_blank" rel="noopener">Открыть профиль</a></div>
+      </div>
+      <div class="ccard">
+        <div class="ic ic-ph"><svg viewBox="0 0 24 24" fill="none" stroke="#C9D5E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.4 8.8 5.6c.4.4.5 1 .2 1.5L8 9c1 2.3 2.7 4 5 5l1.9-1c.5-.3 1.1-.2 1.5.2l2.2 2.2c.5.5.5 1.4-.1 1.9-1.2 1-2.8 1.5-4.5 1.1-5-1.2-9-5.2-10.2-10.2-.4-1.7.1-3.3 1.1-4.5.5-.6 1.4-.6 1.9-.1Z"/></svg></div>
+        <h3>Телефон</h3>
+        <div class="val" data-phone-text>+992 93 777-88-66</div>
+        <div class="row">
+          <a class="btn btn-ghost" data-tel href="#">Позвонить</a>
+          <button class="btn btn-ghost" id="copyPhone" type="button">Скопировать</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final reveal">
+    <h2 class="metal">Покажем вживую</h2>
+    <p>Договоримся о демонстрации — привезём устройство или пришлём видео примеров.</p>
+    <div class="cta">
+      <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-tg" data-tg href="#" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<footer>
+  <div class="fl">
+    <img src="assets/logo-mark.png" alt="" onerror="this.style.display='none'">
+    <b class="metal">SFERA.TJ</b>
+  </div>
+  <div>Голографическая реклама · SINCE 2026 · Душанбе</div>
+  <div style="margin-top:6px">Instagram: <a data-ig data-ig-text2 href="#" target="_blank" rel="noopener">@sfera.tjk</a></div>
+  <div style="margin-top:10px;opacity:.65">© <span id="year">2026</span> SFERA.TJ</div>
+</footer>
+
+<!-- нижняя панель -->
+<div class="ctabar" id="ctabar">
+  <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.6 3.4 8.8 5.6c.4.4.5 1 .2 1.5L8 9c1 2.3 2.7 4 5 5l1.9-1c.5-.3 1.1-.2 1.5.2l2.2 2.2c.5.5.5 1.4-.1 1.9-1.2 1-2.8 1.5-4.5 1.1-5-1.2-9-5.2-10.2-10.2-.4-1.7.1-3.3 1.1-4.5.5-.6 1.4-.6 1.9-.1Z"/></svg>
+    WhatsApp
+  </a>
+  <a class="btn btn-tg" data-tg href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 3.4 3.7 10.3c-.9.36-.85 1.62.07 1.93l4.5 1.5 1.7 4.9c.3.9 1.5 1.05 2 .23l2.3-3.55 4.4 3.25c.8.58 1.93.14 2.13-.84l2-12.3c.17-1.03-.84-1.8-1.2-1.02Z"/></svg>
+    Telegram
+  </a>
+</div>
+
+<div id="lb" role="dialog" aria-label="Просмотр фото"><img alt=""></div>
+<div id="toast" role="status">Номер скопирован</div>
+
+<script>
+(function(){
+  var reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- ссылки из настроек ---- */
+  var waText = encodeURIComponent("Здравствуйте! Пишу с сайта SFERA.TJ — интересуют голографические 3D-вентиляторы.");
+  var wa = "https://wa.me/" + CONFIG.WHATSAPP_NUMBER + "?text=" + waText;
+  var tg = "https://t.me/" + CONFIG.TELEGRAM_USER;
+  var ig = "https://instagram.com/" + CONFIG.INSTAGRAM_USER;
+  document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = wa; });
+  document.querySelectorAll("[data-tg]").forEach(function(a){ a.href = tg; });
+  document.querySelectorAll("[data-ig]").forEach(function(a){ a.href = ig; });
+  document.querySelectorAll("[data-tel]").forEach(function(a){ a.href = "tel:" + CONFIG.PHONE; });
+  document.querySelectorAll("[data-phone-text]").forEach(function(el){ el.textContent = CONFIG.PHONE_TEXT; });
+  document.querySelectorAll("[data-tg-text]").forEach(function(el){ el.textContent = "@" + CONFIG.TELEGRAM_USER; });
+  document.querySelectorAll("[data-ig-text]").forEach(function(el){ el.textContent = "@" + CONFIG.INSTAGRAM_USER; });
+  document.querySelectorAll("[data-ig-text2]").forEach(function(el){ el.textContent = "@" + CONFIG.INSTAGRAM_USER; });
+
+  /* ---- интро ---- */
+  var intro = document.getElementById("intro");
+  if (intro) {
+    setTimeout(function(){ intro.classList.add("reveal"); }, 1250);
+    setTimeout(function(){ intro.classList.add("done"); }, 2300);
+    setTimeout(function(){
+      if (intro.parentNode) intro.parentNode.removeChild(intro);
+      try { sessionStorage.setItem("introSeen","1"); } catch(e){}
+    }, 2950);
+  }
+
+  /* ---- роутер страниц ---- */
+  var pages = Array.prototype.slice.call(document.querySelectorAll(".page"));
+  var navs  = Array.prototype.slice.call(document.querySelectorAll("[data-nav]"));
+  var valid = ["home","sale","rent","services","contacts"];
+  function go(id){
+    if (valid.indexOf(id) === -1) id = "home";
+    pages.forEach(function(p){ p.classList.toggle("active", p.getAttribute("data-page") === id); });
+    navs.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href") === "#" + id); });
+    document.body.setAttribute("data-page", id);
+    window.scrollTo({top:0, behavior: reduced ? "auto" : "smooth"});
+  }
+  window.addEventListener("hashchange", function(){ go(location.hash.slice(1) || "home"); });
+  go(location.hash.slice(1) || "home");
+
+  /* ---- появление секций ---- */
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {threshold:.1});
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---- счётчики ---- */
+  function fmt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u2009"); }
+  function animateCount(el){
+    var target = parseInt(el.getAttribute("data-count"), 10);
+    var pre = el.getAttribute("data-prefix") || "";
+    var suf = el.getAttribute("data-suffix") || "";
+    if (reduced) { el.textContent = pre + fmt(target) + suf; return; }
+    var t0 = null, dur = 1200;
+    function tick(t){
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + fmt(Math.round(target * eased)) + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ("IntersectionObserver" in window) {
+    var io2 = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting) { animateCount(e.target); io2.unobserve(e.target); }
+      });
+    }, {threshold:.5});
+    document.querySelectorAll("[data-count]").forEach(function(el){ io2.observe(el); });
+  }
+
+  /* ---- наклон карточек (только мышь) ---- */
+  if (window.matchMedia && matchMedia("(hover:hover) and (pointer:fine)").matches && !reduced) {
+    document.querySelectorAll(".tilt").forEach(function(card){
+      card.addEventListener("pointermove", function(ev){
+        var r = card.getBoundingClientRect();
+        var rx = (0.5 - (ev.clientY - r.top) / r.height) * 7;
+        var ry = ((ev.clientX - r.left) / r.width - 0.5) * 9;
+        card.style.transform = "perspective(700px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) translateY(-3px)";
+      });
+      card.addEventListener("pointerleave", function(){ card.style.transform = ""; });
+    });
+  }
+
+  /* ---- частицы в герое ---- */
+  var fx = document.getElementById("fx");
+  if (fx && !reduced) {
+    for (var i = 0; i < 14; i++) {
+      var s = document.createElement("span");
+      s.className = "p";
+      s.style.left = (4 + Math.random() * 92) + "%";
+      s.style.top  = (8 + Math.random() * 80) + "%";
+      s.style.setProperty("--d",  (3.5 + Math.random() * 4).toFixed(2) + "s");
+      s.style.setProperty("--dl", (Math.random() * 3).toFixed(2) + "s");
+      fx.appendChild(s);
+    }
+  }
+
+  /* ---- нижняя панель ---- */
+  var bar = document.getElementById("ctabar");
+  function onScroll(){
+    var nearBottom = window.scrollY + window.innerHeight > document.body.scrollHeight - 240;
+    if (window.scrollY > 430 && !nearBottom) bar.classList.add("show");
+    else bar.classList.remove("show");
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* ---- лайтбокс для реальных фото ---- */
+  var lb = document.getElementById("lb");
+  var lbImg = lb.querySelector("img");
+  document.querySelectorAll(".shot img").forEach(function(img){
+    img.addEventListener("click", function(){
+      if (!img.naturalWidth) return;
+      lbImg.src = img.src;
+      lb.classList.add("open");
+    });
+  });
+  lb.addEventListener("click", function(){ lb.classList.remove("open"); lbImg.src = ""; });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") lb.classList.remove("open"); });
+
+  /* ---- копирование номера ---- */
+  var cp = document.getElementById("copyPhone");
+  var toast = document.getElementById("toast");
+  if (cp) cp.addEventListener("click", function(){
+    function done(){ toast.classList.add("show"); setTimeout(function(){ toast.classList.remove("show"); }, 1600); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(CONFIG.PHONE).then(done, done);
+    } else { done(); }
+  });
+
+  /* ---- год ---- */
+  var y = document.getElementById("year");
+  if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
