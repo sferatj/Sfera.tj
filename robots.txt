@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sferatj.github.io/Sfera.tj/sitemap.xml
